@@ -12,8 +12,8 @@ RocketShip PMs need this handled: The tools purpose is to help me gather feedbac
 |---|---|
 | 01 Context | Slack Internal Chats - All References with "RocketShip Pro comms" Slack Customer Communications - Signal based on Align Slack Channels with… |
 | 02 Tools | Brief Creation - Draft Table Creation - Write Snippet Library - Write |
-| 03 Loop | Review 2 times per day for new information. Before 8AM (EST) and After 5PM (EST). Only take in anything new, do not |
-| 04 Memory | Every new run is creating new information, but it needs to remember the last 1 month of briefs and information it has collected in order to… |
+| 03 Loop | Ceiling = 2 Turns Scheduled at  8AM (EST) and 5PM (EST). Only take in anything new and use previous briefs as additional context. |
+| 04 Memory | Memory is Per Session. Crossover is allowed across the 2 teams, but no other cross over. |
 | 05 Permissions | read auto · draft auto · write confirm · send blocked |
 | 06 Verification | Human Checks at the beginning to get an understanding of how much it gets right or wrong. |
 
@@ -48,21 +48,24 @@ Do not send anything.
 
 **Turn ceiling and escalation**
 
-Review 2 times per day for new information. Before 8AM (EST) and After 5PM (EST). Only take in anything new, do not
+Ceiling = 2 Turns Scheduled at  8AM (EST) and 5PM (EST). Only take in anything new and use previous briefs as additional context.
 
 **Latency and cost target**
 
-_(not yet specified)_
+Cost Per day = 10 tokens
+Answers by 830AM (EST) and 530PM (EST)
 
 ## 04 Memory · Data Requirements
 
 **What persists, at what scope**
 
-Every new run is creating new information, but it needs to remember the last 1 month of briefs and information it has collected in order to connect to previous created artifacts. It should review 1 year of JIRA Initatives and Epics to identify if expanding on or refering to already develop functionality.
+Memory is Per Session. Crossover is allowed across the 2 teams, but no other cross over. Every new run is creating new information, but it needs to remember the last 1 month of briefs and information it has collected in order to connect to previous created artifacts. It should review 1 year of JIRA Initatives and Epics to identify if expanding on or refering to already develop functionality.
 
 **Expiry and write rules**
 
-_(not yet specified)_
+Briefs and Snippets live for 6 months
+Full Information it gathers is remembered for 1 month. 
+Human Correct overrules output model.
 
 ## 05 Permissions · AI Risks & Mitigations
 
@@ -87,7 +90,7 @@ Human Checks at the beginning to get an understanding of how much it gets right 
 
 **Failure behaviour**
 
-_(not yet specified)_
+Human Checks to Start.
 
 ## Eval plan
 
@@ -96,4 +99,3 @@ _Stub. Module 6 fills this in: golden set, pass thresholds, and regression caden
 ## Out of scope
 
 Any capability not in the verb list above, and any action tiered `blocked`. Both are decisions on the record, not omissions.
-
