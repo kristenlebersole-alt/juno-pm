@@ -10,19 +10,19 @@ Juno is sythesising feedback and information for priortization and roadmapping w
 
 **Stop Conditions** (Loop):
 
-Ceiling = 2 Turns Scheduled at 8AM (EST) and 5PM (EST). Only take in anything new and use previous briefs as additional context.
-Cost Per day = 10 tokens Answers by 830AM (EST) and 530PM (EST)
+Agent searches each source location 2 times to retrieve new information. Once all relevant source information retrieved, Juno uses previous briefs and sythesizes information across all sources and context creating any new briefs.System rums at Scheduled at 8AM (EST) and 5PM (EST). Only take in anything new and use previous briefs as additional context. Go out to retrieve information from each source 2 times in order to create the brief. 
+Cost Per day = 50 tokens Answers by 830AM (EST) and 530PM (EST)
 
 **Structured Tool Outputs** (Tools):
 
-Brief Creation - When this works, it hands back a summary brief of the problem and solution based on the template; When it fails, it hands back an error notice and identify which step it failed (not enough information etc)
+Brief Creation - When this works, it hands back a summary brief of the problem and solution based on the template; When it fails, it hands back an error notice and identify which step it failed (not enough information etc); If new information is identified for an existing brief, it creates a new brief and identifies as version N+1 with date. 
 Draft Table Creation - When it succeeds, it creates a Table for prioritization with initial information outlined; It should fill out as much as possible and leave any cells blank when it fails. When it fails, table is blank. 
 JIRA Initative/EPic alignment - Succeeds when associated JIRA ticket is aligned. If it doesnt exist or a fails to locate, leave it blank with a message "create JIRA tickets"
 Write Snippet Library - When this succeeds, there are picture snippets that were directly used to create the summary brief. When it fails, Library remains blank,
 
 **Confidence Thresholds** (Verification):
 
-Juno goes as far as creating all pieces of information (Summary Brief, Table, Information Snippets). It can propose Priority, but not act. Its point is to give information. A Human Checks uses the 3 pieces of information to review and can modify prioritization or add additional information and context.
+Juno goes as far as creating all pieces of information (Summary Brief, Table, Information Snippets). Even if it doesnt have all the perfect information, it can create a start piece, but flag in the table an AI Confidence level.  It can propose Priority, but not act. Its point is to give information. A Human Checks uses the 3 pieces of information to review and can modify prioritization or add additional information and context.
 
 **North Star** (Context):
 
@@ -32,7 +32,7 @@ Slack Internal Chats - All References with "RocketShip Pro comms" Slack Customer
 
 **Agency Permission:**
 
-Can write a draft summary brief, can create initial table, can align Jira Initiatives/Epics. Can
+Can write a draft summary brief, can create initial table, can align Jira Initiatives/Epics. Can give an initial priority. Juno can only write new briefs, Juno can not rewrite or write over a brief.
 
 **Access Control:**
 
@@ -40,8 +40,8 @@ Read From: (Slack chats with customers, internal Slack chats, JIRA Epics and Ini
 
 **Fallback Protocols:**
 
-Run 2 times, if nothing new or not enough information, stop and send a notification of status.
+Run 2 times through getting information from all sources. Brief is created once all source information is retrieved/reviewed. , if nothing new or not enough information, stop and send a notification of status.
 
 **Checkpoints:**
 
-Junos can not act on the summary information it provides. Juno can draft everything, human validates and applies.
+Juno cannot act on the summary information it provides. Juno can draft everything, human validates and applies. Include a Checkpoint Status to help define the stage Juno is in for each brief.
